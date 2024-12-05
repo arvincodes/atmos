@@ -78,6 +78,7 @@ h6 {
 header {
   display: flex;
   padding: 20px;
+  gap: 12px;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #cacaca;
@@ -87,6 +88,7 @@ header {
   display: none;
 }
 
+.header-left,
 .header-right, 
 .search-bar {
   display: flex;
@@ -95,14 +97,18 @@ header {
 }
 
 .search-bar {
+  display: flex;
+  justify-content: space-between;
   padding: 0 8px;
   background-color: #efefef;
   border-radius: 8px;
+  width: 60vw;
+  max-width: 500px;
 }
 
 .search-icon {
-  width: 16px;
-  height: 16px;
+  max-width: 16px;
+  max-height: 16px;
 }
 
 .profile {
