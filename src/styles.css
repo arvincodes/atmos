@@ -172,6 +172,36 @@ main {
   border-radius: 8px;
 }
 
+.temp-container {
+  padding: 20px 20px 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  gap: 6px;
+}
+
+.temp-details {
+  padding: 0;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-icon {
+  max-width: 160px;
+}
+
+.temp-container h1 {
+  font-size: 70px;
+}
+
+.temp-container p {
+  font-size: 14px;
+}
+
 .today-and-conditions-container {
   display: flex;
   flex-direction: column;
