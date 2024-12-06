@@ -16,7 +16,7 @@
         <h1 class="logo-name">Atmos</h1>
       </div>
       <div class="search-bar">
-        <input type="text" id="search" name="search">
+        <input type="text" id="search" name="search" placeholder="Search location...">
         <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
           <path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd" />
         </svg>        
@@ -27,7 +27,7 @@
     </header>
     <main>
       <section class="temp-container container">
-        <img src="images/logo.svg" alt="Weather icon" class="weather-icon">
+        <img src="images/weather-statuses/tstorm.svg" alt="Weather icon" class="weather-icon">
         <div class="temp-details">
           <h1>31°</h1>
           <div class="temp-right">
@@ -37,8 +37,74 @@
         </div>
       </section>
       <div class="today-and-conditions-container container">
-        <section class="today-container container2"></section>
-        <section class="conditions-container container2"></section>
+        <section class="today-container container2">
+          <h3 class="today-container-heading">Today's Forecast</h3>
+          <div class="today-grid">
+            <div class="time-item">
+              <p class="time">6:00 AM</p>
+              <img class="time-weather" src="images/weather-statuses/mcloudy.svg">
+              <h4>25°</h4>
+            </div>
+            <div class="time-item">
+              <p class="time">6:00 AM</p>
+              <img class="time-weather" src="images/weather-statuses/mcloudy.svg">
+              <h4>25°</h4>
+            </div>
+            <div class="time-item">
+              <p class="time">6:00 AM</p>
+              <img class="time-weather" src="images/weather-statuses/mcloudy.svg">
+              <h4>25°</h4>
+            </div>
+            <div class="time-item">
+              <p class="time">6:00 AM</p>
+              <img class="time-weather" src="images/weather-statuses/mcloudy.svg">
+              <h4>25°</h4>
+            </div>
+            <div class="time-item">
+              <p class="time">6:00 AM</p>
+              <img class="time-weather" src="images/weather-statuses/mcloudy.svg">
+              <h4>25°</h4>
+            </div>
+            <div class="time-item">
+              <p class="time">6:00 AM</p>
+              <img class="time-weather" src="images/weather-statuses/mcloudy.svg">
+              <h4>25°</h4>
+            </div>
+          </div>
+        </section>
+        <section class="conditions-container container2">
+          <h3 class="conditions-heading">Air Conditions</h3>
+          <div class="conditions-grid">
+            <div class="conditions-item">
+              <img src="images/logo.svg" class="conditions-item-icon">
+              <div class="conditions-item-details">
+                <p class="conditions-item-heading">Real Feel</p>
+                <h4 class="conditions-item-heading">71°</h4>
+              </div>
+            </div>
+            <div class="conditions-item">
+              <img src="images/logo.svg" class="conditions-item-icon">
+              <div class="conditions-item-details">
+                <p class="conditions-item-heading">Real Feel</p>
+                <h4 class="conditions-item-heading">71°</h4>
+              </div>
+            </div>
+            <div class="conditions-item">
+              <img src="images/logo.svg" class="conditions-item-icon">
+              <div class="conditions-item-details">
+                <p class="conditions-item-heading">Real Feel</p>
+                <h4 class="conditions-item-heading">71°</h4>
+              </div>
+            </div>
+            <div class="conditions-item">
+              <img src="images/logo.svg" class="conditions-item-icon">
+              <div class="conditions-item-details">
+                <p class="conditions-item-heading">Real Feel</p>
+                <h4 class="conditions-item-heading">71°</h4>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
       <section class="week-container container"></section>
     </main>

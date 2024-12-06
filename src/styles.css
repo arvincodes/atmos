@@ -151,6 +151,10 @@ header {
   background-color: transparent;
 }
 
+#search::placeholder {
+  color: #cacaca;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -166,9 +170,11 @@ main {
 }
 
 .container2 {
-  background-color: #cacaca;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   border-radius: 8px;
 }
 
@@ -185,7 +191,7 @@ main {
 .temp-details {
   padding: 0;
   display: flex;
-  gap: 40px;
+  gap: 30px;
   justify-content: center;
   align-items: center;
 }
@@ -207,6 +213,58 @@ main {
   flex-direction: column;
   gap: 20px;
   height: 480px;
+  background-color: #cacaca;
+}
+
+.today-container,
+.conditions-container {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 8px;
+}
+
+.today-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 12px;
+}
+
+.time-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.time-item .time {
+  font-size: 14px;
+}
+
+.time-weather {
+  width: 40px;
+  height: 40px;
+}
+
+.time-item h4 {
+  font-size: 20px;
+}
+
+.conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-gap: 12px;
+}
+
+.conditions-item {
+  background-color: red;
+  display: flex;
+  gap: 16px;
+}
+
+.conditions-item-icon {
+  width: 40px;
+  height: 40px;
 }
 
 @media (min-width: 800px) {
