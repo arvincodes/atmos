@@ -165,7 +165,7 @@ main {
 .container {
   /* background-color: #efefef; */
   width: 100%;
-  min-height: 240px;
+  /* min-height: 240px; */
   border-radius: 8px;
 }
 
@@ -227,7 +227,8 @@ main {
 }
 
 .today-container,
-.conditions-container {
+.conditions-container,
+.week-container {
   display: flex;
   flex-direction: column;
   padding: 16px;
@@ -288,6 +289,38 @@ main {
   font-size: 18px;
 }
 
+.week-container {
+  background-color: #efefef;
+}
+
+.week-items-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-gap: 16px;
+}
+
+.week-item {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.week-details-middle {
+  display: flex;
+  gap: 12px;
+}
+
+.week-weather {
+  width: 20px;
+  height: 20px;
+}
+
+.week-item p {
+  font-size: 14px;
+}
+
 @media (min-width: 1000px) {
   .logo-name {
     display: block;
@@ -303,11 +336,11 @@ main {
     max-width: 60%;
   }
 
-  .container {
-    min-height: 610px;
-  }
-
   .today-and-conditions-container {
     gap: 20px;
+  }
+
+  .week-container {
+    height: 100%;
   }
 }
