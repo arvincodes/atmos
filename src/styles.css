@@ -190,9 +190,22 @@ main {
 .temp-details {
   padding: 0;
   display: flex;
-  gap: 30px;
+  flex-direction: column;
+  gap: 4px;
   justify-content: center;
   align-items: center;
+  width: 100%;
+}
+
+.temp-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.temp-description {
+  max-width: 250px;
 }
 
 .weather-icon {
@@ -284,6 +297,10 @@ main {
   main {
     display: flex;
     flex-direction: row;
+  }
+
+  .weather-icon {
+    max-width: 60%;
   }
 
   .container {
