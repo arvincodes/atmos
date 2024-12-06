@@ -5,15 +5,19 @@
   --secondary-text: #000000;
   --gray-1: #efefef;
   --gray-2: #cacaca;
+  --gray-3: #afafaf;
+  --description: #000000;
 }
 
 .darkmode {
-  --base-color: #000000;
-  --base-variant: #1c1c1c;
-  --text-color: #ffffff;
-  --secondary-text: #f5f5f5;
-  --gray-1: #efefef;
-  --gray-2: #cacaca;
+  --base-color: #26292c;
+  --base-variant: #2e3134;
+  --text-color: #dadada;
+  --secondary-text: #000000;
+  --gray-1: #2e3134;
+  --gray-2: #1f2124;
+  --gray-3: #5a5a5a;
+  --description: #717171;
 }
 
 ::-webkit-scrollbar {
@@ -104,11 +108,12 @@ header {
   gap: 12px;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--gray-2);
+  border-bottom: 1px solid var(--gray-1);
 }
 
 .logo-name {
   display: none;
+  color: var(--text-color);
 }
 
 .header-left,
@@ -117,11 +122,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
-}
-
-.header-left {
-  gap: 12px;
+  gap: 10px;
 }
 
 .search-bar {
@@ -137,6 +138,7 @@ header {
 .search-icon {
   max-width: 16px;
   max-height: 16px;
+  fill: var(--gray-3);
   cursor: pointer;
   transition: opacity 0.3s;
 }
@@ -167,10 +169,11 @@ header {
   border: none;
   outline: none;
   background-color: transparent;
+  color: var(--text-color);
 }
 
 #search::placeholder {
-  color: var(--gray-2);
+  color: var(--gray-3);
 }
 
 #theme-switch {
@@ -184,11 +187,16 @@ header {
   border-radius: 50%;
   background-color: var(--gray-1);
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: opacity 0.3s;
 }
 
 #theme-switch:hover {
-  background-color: var(--gray-2);
+  opacity: 0.6;
+}
+
+#theme-switch svg {
+  stroke: var(--gray-3);
+  fill: var(--gray-3);
 }
 
 #theme-switch svg:last-child {
@@ -208,6 +216,7 @@ main {
   flex-direction: column;
   padding: 20px;
   gap: 20px;
+  color: var(--text-color);
 }
 
 .container {
@@ -255,6 +264,7 @@ main {
 
 .temp-description {
   max-width: 250px;
+  color: var(--description);
 }
 
 .weather-icon {
@@ -299,6 +309,7 @@ main {
 
 .time-item .time {
   font-size: 14px;
+  color: var(--description);
 }
 
 .time-weather {
@@ -321,17 +332,20 @@ main {
   gap: 12px;
   padding: 8px;
   border-radius: 8px;
-  background-color: var(--gray-1);
+  background-color: var(--base-color);
+  color: var(--text-color);
 }
 
 .conditions-item-icon {
   margin-top: 2px;
   width: 16px;
   height: 16px;
+  fill: var(--description);
 }
 
 .conditions-item-heading {
   font-size: 14px;
+  color: var(--description);
 }
 
 .conditions-item-value {
@@ -351,7 +365,8 @@ main {
 .week-item {
   display: flex;
   justify-content: space-between;
-  background-color: var(--gray-1);
+  background-color: var(--base-color);
+  color: var(--text-color);
   padding: 12px;
   border-radius: 8px;
 }
@@ -368,6 +383,11 @@ main {
 
 .week-item p {
   font-size: 14px;
+}
+
+.day, 
+.date {
+  color: var(--description);
 }
 
 .desktop-right {
@@ -388,6 +408,7 @@ main {
   .logo-name {
     display: block;
     font-size: 22px;
+    color: var(--text-color);
   }
   
   main {
