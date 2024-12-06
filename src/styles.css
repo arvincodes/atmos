@@ -253,8 +253,8 @@ main {
 }
 
 .time-weather {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
 }
 
 .time-item h4 {
@@ -272,7 +272,7 @@ main {
   gap: 12px;
   padding: 8px;
   border-radius: 8px;
-  background-color: #ffffff;
+  background-color: #efefef;
 }
 
 .conditions-item-icon {
@@ -290,19 +290,19 @@ main {
 }
 
 .week-container {
-  background-color: #efefef;
+  background-color: #f5f5f5;
 }
 
 .week-items-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   grid-gap: 16px;
 }
 
 .week-item {
   display: flex;
   justify-content: space-between;
-  background-color: #f5f5f5;
+  background-color: #efefef;
   padding: 12px;
   border-radius: 8px;
 }
@@ -321,6 +321,20 @@ main {
   font-size: 14px;
 }
 
+.desktop-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 500px) {
+  .week-items-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 16px;
+  }
+}
+
 @media (min-width: 1000px) {
   .logo-name {
     display: block;
@@ -336,11 +350,25 @@ main {
     max-width: 60%;
   }
 
-  .today-and-conditions-container {
+  .temp-container {
+    width: 30%;
+    background-color: #f5f5f5;
+  }
+
+  .desktop-right {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
     gap: 20px;
   }
 
   .week-container {
     height: 100%;
+  }
+}
+
+@media (min-width: 1300px) {
+  .temp-container {
+    justify-content: center;
   }
 }
