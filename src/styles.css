@@ -1,6 +1,6 @@
 :root {
   --base-color: #ffffff;
-  --base-variant: #f5f5f5;
+  --base-variant: #f4f4f4;
   --text-color: #000000;
   --secondary-text: #000000;
   --gray-1: #efefef;
@@ -256,6 +256,7 @@ main {
 }
 
 .temp-top {
+  margin-top: -20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -268,7 +269,7 @@ main {
 }
 
 .weather-icon {
-  max-width: 160px;
+  max-width: 240px;
 }
 
 .temp-container h1 {
@@ -417,7 +418,7 @@ main {
   }
 
   .weather-icon {
-    max-width: 60%;
+    min-width: 70%;
   }
 
   .temp-container {
