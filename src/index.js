@@ -138,7 +138,11 @@ async function getData() {
 
     // Update air conditions
     document.getElementById('humidity').textContent = weatherData.currentConditions.humidity;
-    document.getElementById('wind-gust').textContent = weatherData.currentConditions.windgust;
+    if (weatherData.currentConditions.windgust === null) {
+      document.getElementById('wind-gust').textContent = 'N/A';
+    } else {
+      document.getElementById('wind-gust').textContent = weatherData.currentConditions.windgust;
+    }
     document.getElementById('wind-speed').textContent = weatherData.currentConditions.windspeed;
     document.getElementById('wind-direction').textContent = weatherData.currentConditions.winddir;
 
