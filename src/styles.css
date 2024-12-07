@@ -248,22 +248,13 @@ main {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
 
-.temp-top {
-  margin-top: -20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-}
-
 .temp-description {
-  max-width: 250px;
+  max-width: 80%;
   color: var(--description);
 }
 
@@ -271,12 +262,36 @@ main {
   max-width: 240px;
 }
 
-.temp-container h1 {
-  font-size: 70px;
+#temp {
+  font-size: 72px;
+}
+
+#location {
+  font-size: 16px;
 }
 
 .temp-container p {
   font-size: 14px;
+}
+
+.temp-top {
+  margin: -20px 0 10px 0;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 90%;
+}
+
+.temp-right {
+  margin: -20px 0 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
 }
 
 .today-and-conditions-container {
@@ -424,6 +439,30 @@ main {
 
   .temp-container {
     width: 30%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .temp-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .temp-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .temp-right {
+    margin: -20px 0 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
   }
 
   .desktop-right {

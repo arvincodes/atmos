@@ -30,6 +30,20 @@ async function getData() {
   const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}?key=GGPDY8W7BL5YRSP9HC7TSFZPT`, { mode: 'cors'})
   const weatherData = await response.json()
   
+  // first section
+  const temp = document.getElementById('temp')
+  temp.textContent = `${weatherData.currentConditions.temp}°`
+  
+  const location = document.getElementById('location')
+  location.textContent = weatherData.resolvedAddress
+  
+  const conditions = document.getElementById('conditions')
+  conditions.textContent = weatherData.currentConditions.conditions
+  
+  const description = document.getElementById('description')
+  description.textContent = weatherData.description
+  
+  // air conditions
   const humidity = document.getElementById('humidity')
   humidity.textContent = weatherData.currentConditions.humidity
   
