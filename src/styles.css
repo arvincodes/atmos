@@ -2,12 +2,13 @@
   --base-color: #ffffff;
   --base-variant: #f4f4f4;
   --base-variant-2: #e6e6e6;
-  --text-color: #000000;
+  --text-color: #252525;
   --secondary-text: #000000;
   --gray-1: #efefef;
   --gray-2: #cacaca;
   --gray-3: #afafaf;
   --description: #000000;
+  --accent-color: #916cff;
 }
 
 .darkmode {
@@ -33,7 +34,7 @@
 ::-webkit-scrollbar-thumb {
   background-color: var(--gray-2);
   border-radius: 10px;
-  border: 3px solid var(--base-color);
+  border: 4px solid var(--base-color);
 }
 
 *,
@@ -99,6 +100,10 @@ h6 {
 
 /* ^^^ CSS Reset ^^^ */
 
+a {
+  text-decoration: none;
+}
+
 header {
   display: flex;
   padding: 20px;
@@ -119,7 +124,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .search-bar {
@@ -128,7 +133,7 @@ header {
   padding: 0 8px;
   background-color: var(--base-variant);
   border-radius: 8px;
-  width: 60vw;
+  width: 40vw;
   max-width: 400px;
 }
 
@@ -137,7 +142,11 @@ header {
   max-height: 16px;
   fill: var(--gray-3);
   cursor: pointer;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, fill 0.3s;
+}
+
+.search-icon:hover {
+  fill: var(--text-color);
 }
 
 .profile {
@@ -173,6 +182,17 @@ header {
   color: var(--gray-3);
 }
 
+.github-icon {
+  min-width: 30px;
+  min-height: 30px;
+  fill: var(--text-color);
+  transition: opacity 0.3s;
+}
+
+.github-icon:hover {
+  opacity: 0.7;
+}
+
 #theme-switch {
   padding: 6px;
   display: flex;
@@ -182,18 +202,18 @@ header {
   min-height: 28px;
   border: none;
   border-radius: 50%;
-  background-color: var(--gray-1);
+  background-color: var(--text-color);
   cursor: pointer;
   transition: opacity 0.3s;
 }
 
 #theme-switch:hover {
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 #theme-switch svg {
-  stroke: var(--text-color);
-  fill: var(--text-color);
+  stroke: var(--base-color);
+  fill: var(--base-color);
 }
 
 #theme-switch svg:last-child {
@@ -428,8 +448,13 @@ main {
 @media (min-width: 1000px) {
   .logo-name {
     display: block;
-    font-size: 22px;
+    font-size: 24px;
     color: var(--text-color);
+  }
+
+  .header-left,
+  .header-right {
+    gap: 12px;
   }
   
   main {
