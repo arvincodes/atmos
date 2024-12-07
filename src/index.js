@@ -72,8 +72,29 @@ async function getData() {
 
     // Update hourly forecast
     const hourlyTempIds = ['6-am-temp', '8-am-temp', '10-am-temp', '12-pm-temp', '2-pm-temp', '4-pm-temp', '6-pm-temp'];
+    const hourlyIconIds = ['6-am-icon', '8-am-icon', '10-am-icon', '12-pm-icon', '2-pm-icon', '4-pm-icon', '6-pm-icon'];
     hourlyData.forEach((hourData, index) => {
       document.getElementById(hourlyTempIds[index]).textContent = `${hourData.currentConditions.temp}°`;
+
+      if (hourData.currentConditions.icon === "snow" || hourData.currentConditions.icon === "snow-showers-day" || hourData.currentConditions.icon === "snow-showers-night") {
+        document.getElementById(hourlyIconIds[index]).src = `${snow}`;
+      } else if (hourData.currentConditions.icon === "rain" || hourData.currentConditions.icon === "showers-day" || hourData.currentConditions.icon === "showers-night") {
+        document.getElementById(hourlyIconIds[index]).src = `${rain}`;
+      } else if (hourData.currentConditions.icon === "partly-cloudy-day") {
+        document.getElementById(hourlyIconIds[index]).src = `${partlyCloudyDay}`;
+      } else if (hourData.currentConditions.icon === "partly-cloudy-night") {
+        document.getElementById(hourlyIconIds[index]).src = `${partlyCloudyNight}`;
+      } else if (hourData.currentConditions.icon === "cloudy" || hourData.currentConditions.icon === "fog") {
+        document.getElementById(hourlyIconIds[index]).src = `${fog}`;
+      } else if (hourData.currentConditions.icon === "thunder-rain" || hourData.currentConditions.icon === "thunder-showers-day" || hourData.currentConditions.icon === "thunder-showers-night") {
+        document.getElementById(hourlyIconIds[index]).src = `${thunder}`;
+      } else if (hourData.currentConditions.icon === "clear-day") {
+        document.getElementById(hourlyIconIds[index]).src = `${clearDay}`;
+      } else if (hourData.currentConditions.icon === "clear-night") {
+        document.getElementById(hourlyIconIds[index]).src = `${clearNight}`;
+      } else if (hourData.currentConditions.icon === "wind") {
+        document.getElementById(hourlyIconIds[index]).src = `${wind}`;
+      }      
     });
 
     // Update air conditions
