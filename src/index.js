@@ -72,6 +72,15 @@ async function getData() {
     document.getElementById('wind-speed').textContent = weatherData.currentConditions.windspeed;
     document.getElementById('wind-direction').textContent = weatherData.currentConditions.winddir;
 
+    // Update 10-day forecast
+    const dayTempIds = ['day-1', 'day-2', 'day-3', 'day-4', 'day-5', 'day-6', 'day-7', 'day-8', 'day-9', 'day-10'];
+    const dayTempDetailsIds = ['day-1-temp', 'day-2-temp', 'day-3-temp', 'day-4-temp', 'day-5-temp', 'day-6-temp', 'day-7-temp', 'day-8-temp', 'day-9-temp', 'day-10-temp'];
+
+    weatherData.days.slice(0, 10).forEach((dayData, index) => {
+      document.getElementById(dayTempIds[index]).textContent = dayData.datetime;
+      document.getElementById(dayTempDetailsIds[index]).textContent = `${dayData.temp}°`;
+    });
+
   } catch (error) {
     console.error('Error fetching data:', error);
   }

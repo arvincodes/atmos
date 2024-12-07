@@ -1,7 +1,7 @@
 :root {
   --base-color: #ffffff;
   --base-variant: #f4f4f4;
-  --base-variant-2: #ebebeb;
+  --base-variant-2: #e6e6e6;
   --text-color: #000000;
   --secondary-text: #000000;
   --gray-1: #efefef;
@@ -345,7 +345,7 @@ main {
 .conditions-item {
   display: flex;
   gap: 12px;
-  padding: 8px;
+  padding: 10px;
   border-radius: 8px;
   background-color: var(--base-variant-2);
   color: var(--text-color);
@@ -382,20 +382,23 @@ main {
 .week-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: var(--base-variant-2);
   color: var(--text-color);
-  padding: 12px;
+  padding: 8px 12px;
   border-radius: 8px;
 }
 
 .week-details-middle {
   display: flex;
   gap: 12px;
+  justify-content: center;
+  align-items: center;
 }
 
 .week-weather {
-  width: 20px;
-  height: 20px;
+  width: 28px;
+  height: 28px;
 }
 
 .week-item p {
