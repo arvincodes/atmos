@@ -32,6 +32,15 @@ async function getData() {
   
   const humidity = document.getElementById('humidity')
   humidity.textContent = weatherData.currentConditions.humidity
+  
+  const windGust = document.getElementById('wind-gust')
+  windGust.textContent = weatherData.currentConditions.windgust
+  
+  const windSpeed = document.getElementById('wind-speed')
+  windSpeed.textContent = weatherData.currentConditions.windspeed
+  
+  const windDirection = document.getElementById('wind-direction')
+  windDirection.textContent = weatherData.currentConditions.winddir
 }
 
 search.addEventListener('click', () => {
