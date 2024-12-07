@@ -10,6 +10,19 @@ import clearDay from "./images/weather-statuses/2d-clear-day.svg"
 import clearNight from "./images/weather-statuses/2d-clear-night.svg"
 import wind from "./images/weather-statuses/2d-wind.svg"
 
+import snowDay3D from "./images/weather-statuses/3d-day-snow.svg"
+import snowNight3D from "./images/weather-statuses/3d-night-snow.svg"
+import thunderDay3D from "./images/weather-statuses/3d-day-storm.svg"
+import thunderNight3D from "./images/weather-statuses/3d-night-storm.svg"
+import cloudsDay3D from "./images/weather-statuses/3d-day-clouds.svg"
+import cloudsNight3D from "./images/weather-statuses/3d-night-clouds.svg"
+import clearDay3D from "./images/weather-statuses/3d-day-sun.svg"
+import clearNight3D from "./images/weather-statuses/3d-night-moon.svg"
+import rainDay3D from "./images/weather-statuses/3d-day-rain.svg"
+import rainNight3D from "./images/weather-statuses/3d-night-rain.svg"
+import windDay3D from "./images/weather-statuses/3d-day-wind.svg"
+import windNight3D from "./images/weather-statuses/3d-night-wind.svg"
+
 let darkmode = localStorage.getItem('darkmode')
 const themeSwitch = document.getElementById('theme-switch')
 
@@ -69,6 +82,32 @@ async function getData() {
     document.getElementById('location').textContent = weatherData.resolvedAddress;
     document.getElementById('conditions').textContent = weatherData.currentConditions.conditions;
     document.getElementById('description').textContent = weatherData.description;
+
+    if (weatherData.currentConditions.icon === "snow" || weatherData.currentConditions.icon === "snow-showers-day") {
+      document.getElementById('main-weather-icon').src = `${snowDay3D}`
+    } else if (weatherData.currentConditions.icon === "snow-showers-night") {
+      document.getElementById('main-weather-icon').src = `${snowNight3D}`
+    } else if (weatherData.currentConditions.icon === "rain" || weatherData.currentConditions.icon === "showers-day") {
+      document.getElementById('main-weather-icon').src = `${rainDay3D}`
+    } else if (weatherData.currentConditions.icon === "showers-night") {
+      document.getElementById('main-weather-icon').src = `${rainNight3D}`
+    } else if (weatherData.currentConditions.icon === "partly-cloudy-day") {
+      document.getElementById('main-weather-icon').src = `${cloudsDay3D}`
+    } else if (weatherData.currentConditions.icon === "partly-cloudy-night") {
+      document.getElementById('main-weather-icon').src = `${cloudsNight3D}`
+    } else if (weatherData.currentConditions.icon === "cloudy" || weatherData.currentConditions.icon === "fog") {
+      document.getElementById('main-weather-icon').src = `${cloudsDay3D}`
+    } else if (weatherData.currentConditions.icon === "thunder-rain" || weatherData.currentConditions.icon === "thunder-showers-night") {
+      document.getElementById('main-weather-icon').src = `${thunderNight3D}`
+    } else if (weatherData.currentConditions.icon === "thunder-showers-day") {
+      document.getElementById('main-weather-icon').src = `${thunderDay3D}`
+    } else if (weatherData.currentConditions.icon === "clear-day") {
+      document.getElementById('main-weather-icon').src = `${clearDay3D}`
+    } else if (weatherData.currentConditions.icon === "clear-night") {
+      document.getElementById('main-weather-icon').src = `${clearNight3D}`
+    } else if (weatherData.currentConditions.icon === "wind") {
+      document.getElementById('main-weather-icon').src = `${windDay3D}`
+    }  
 
     // Update hourly forecast
     const hourlyTempIds = ['6-am-temp', '8-am-temp', '10-am-temp', '12-pm-temp', '2-pm-temp', '4-pm-temp', '6-pm-temp'];
