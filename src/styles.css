@@ -381,6 +381,7 @@ main {
 
 .week-item {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   background-color: var(--base-variant-2);
@@ -419,7 +420,7 @@ main {
 @media (min-width: 500px) {
   .week-items-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-gap: 16px;
   }
 }

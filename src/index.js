@@ -1,5 +1,15 @@
 import './styles.css'
 
+import snow from "./images/weather-statuses/2d-snow.svg"
+import rain from "./images/weather-statuses/2d-rain.svg"
+import partlyCloudyDay from "./images/weather-statuses/2d-partly-cloudy-day.svg"
+import partlyCloudyNight from "./images/weather-statuses/2d-partly-cloudy-night.svg"
+import fog from "./images/weather-statuses/2d-fog.svg"
+import thunder from "./images/weather-statuses/2d-thunder.svg"
+import clearDay from "./images/weather-statuses/2d-clear-day.svg"
+import clearNight from "./images/weather-statuses/2d-clear-night.svg"
+import wind from "./images/weather-statuses/2d-wind.svg"
+
 let darkmode = localStorage.getItem('darkmode')
 const themeSwitch = document.getElementById('theme-switch')
 
@@ -75,10 +85,33 @@ async function getData() {
     // Update 10-day forecast
     const dayTempIds = ['day-1', 'day-2', 'day-3', 'day-4', 'day-5', 'day-6', 'day-7', 'day-8', 'day-9', 'day-10'];
     const dayTempDetailsIds = ['day-1-temp', 'day-2-temp', 'day-3-temp', 'day-4-temp', 'day-5-temp', 'day-6-temp', 'day-7-temp', 'day-8-temp', 'day-9-temp', 'day-10-temp'];
+    const dayIconIds = ['day-1-icon', 'day-2-icon', 'day-3-icon', 'day-4-icon', 'day-5-icon', 'day-6-icon', 'day-7-icon', 'day-8-icon', 'day-9-icon', 'day-10-icon'];
+    const dayConditionIds = ['day-1-conditions', 'day-2-conditions', 'day-3-conditions', 'day-4-conditions', 'day-5-conditions', 'day-6-conditions', 'day-7-conditions', 'day-8-conditions', 'day-9-conditions', 'day-10-conditions'];
 
     weatherData.days.slice(0, 10).forEach((dayData, index) => {
       document.getElementById(dayTempIds[index]).textContent = dayData.datetime;
       document.getElementById(dayTempDetailsIds[index]).textContent = `${dayData.temp}°`;
+      document.getElementById(dayConditionIds[index]).textContent = dayData.conditions;
+
+      if (dayData.icon === "snow" || dayData.icon === "snow-showers-day" || dayData.icon === "snow-showers-night") {
+        document.getElementById(dayIconIds[index]).src = `${snow}`
+      } else if (dayData.icon === "rain" || dayData.icon === "showers-day" || dayData.icon === "showers-night") {
+        document.getElementById(dayIconIds[index]).src = `${rain}`
+      } else if (dayData.icon === "partly-cloudy-day") {
+        document.getElementById(dayIconIds[index]).src = `${partlyCloudyDay}`
+      } else if (dayData.icon === "partly-cloudy-night") {
+        document.getElementById(dayIconIds[index]).src = `${partlyCloudyNight}`
+      } else if (dayData.icon === "cloudy" || dayData.icon === "fog") {
+        document.getElementById(dayIconIds[index]).src = `${fog}`
+      } else if (dayData.icon === "thunder-rain" || dayData.icon === "thunder-showers-day" || dayData.icon === "thunder-showers-night") {
+        document.getElementById(dayIconIds[index]).src = `${thunder}`
+      } else if (dayData.icon === "clear-day") {
+        document.getElementById(dayIconIds[index]).src = `${clearDay}`
+      } else if (dayData.icon === "clear-night") {
+        document.getElementById(dayIconIds[index]).src = `${clearNight}`
+      } else if (dayData.icon === "wind") {
+        document.getElementById(dayIconIds[index]).src = `${wind}`
+      }
     });
 
   } catch (error) {
@@ -86,8 +119,6 @@ async function getData() {
   }
 }
 
-
 search.addEventListener('click', () => {
   getData()
 })
-
