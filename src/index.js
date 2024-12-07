@@ -21,7 +21,6 @@ import clearNight3D from "./images/weather-statuses/3d-night-moon.svg"
 import rainDay3D from "./images/weather-statuses/3d-day-rain.svg"
 import rainNight3D from "./images/weather-statuses/3d-night-rain.svg"
 import windDay3D from "./images/weather-statuses/3d-day-wind.svg"
-import windNight3D from "./images/weather-statuses/3d-night-wind.svg"
 
 let darkmode = localStorage.getItem('darkmode')
 const themeSwitch = document.getElementById('theme-switch')
@@ -45,8 +44,13 @@ themeSwitch.addEventListener('click', () => {
 
 const input = document.getElementById('search')
 const search = document.querySelector('.search-icon')
+const preloadedLocation = 'New York'
+
+input.value = preloadedLocation
 
 async function getData() {
+  document.body.classList.remove('loaded');
+
   if (!input.value.trim()) {
     return;
   }
@@ -178,10 +182,16 @@ async function getData() {
       }
     });
 
+    document.body.classList.add('loaded');
+
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  getData()
+})
 
 search.addEventListener('click', () => {
   getData()

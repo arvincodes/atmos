@@ -104,6 +104,15 @@ a {
   text-decoration: none;
 }
 
+body {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
 header {
   display: flex;
   padding: 20px;
@@ -239,9 +248,7 @@ main {
 }
 
 .container {
-  /* background-color: var(--gray-1); */
   width: 100%;
-  /* min-height: 240px; */
   border-radius: 8px;
 }
 
@@ -257,7 +264,6 @@ main {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   background-color: transparent;
   gap: 6px;
