@@ -64,15 +64,15 @@ async function getData() {
   })();
 
   try {
-    const weatherResponse = fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}?key=GGPDY8W7BL5YRSP9HC7TSFZPT`, { mode: 'cors' });
+    const weatherResponse = fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}?key=ZFE55KN2Q8RRM54T9WD4CJ7XD`, { mode: 'cors' });
     const hourlyResponses = [
-      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}06:00:00?key=GGPDY8W7BL5YRSP9HC7TSFZPT&include=current`, { mode: 'cors' }),
-      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}08:00:00?key=GGPDY8W7BL5YRSP9HC7TSFZPT&include=current`, { mode: 'cors' }),
-      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}10:00:00?key=GGPDY8W7BL5YRSP9HC7TSFZPT&include=current`, { mode: 'cors' }),
-      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}12:00:00?key=GGPDY8W7BL5YRSP9HC7TSFZPT&include=current`, { mode: 'cors' }),
-      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}14:00:00?key=GGPDY8W7BL5YRSP9HC7TSFZPT&include=current`, { mode: 'cors' }),
-      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}16:00:00?key=GGPDY8W7BL5YRSP9HC7TSFZPT&include=current`, { mode: 'cors' }),
-      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}18:00:00?key=GGPDY8W7BL5YRSP9HC7TSFZPT&include=current`, { mode: 'cors' }),
+      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}06:00:00?key=ZFE55KN2Q8RRM54T9WD4CJ7XD&include=current`, { mode: 'cors' }),
+      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}08:00:00?key=ZFE55KN2Q8RRM54T9WD4CJ7XD&include=current`, { mode: 'cors' }),
+      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}10:00:00?key=ZFE55KN2Q8RRM54T9WD4CJ7XD&include=current`, { mode: 'cors' }),
+      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}12:00:00?key=ZFE55KN2Q8RRM54T9WD4CJ7XD&include=current`, { mode: 'cors' }),
+      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}14:00:00?key=ZFE55KN2Q8RRM54T9WD4CJ7XD&include=current`, { mode: 'cors' }),
+      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}16:00:00?key=ZFE55KN2Q8RRM54T9WD4CJ7XD&include=current`, { mode: 'cors' }),
+      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}18:00:00?key=ZFE55KN2Q8RRM54T9WD4CJ7XD&include=current`, { mode: 'cors' }),
     ];
     
 
@@ -87,57 +87,54 @@ async function getData() {
     document.getElementById('conditions').textContent = weatherData.currentConditions.conditions;
     document.getElementById('description').textContent = weatherData.description;
 
-    if (weatherData.currentConditions.icon === "snow" || weatherData.currentConditions.icon === "snow-showers-day") {
-      document.getElementById('main-weather-icon').src = `${snowDay3D}`
-    } else if (weatherData.currentConditions.icon === "snow-showers-night") {
-      document.getElementById('main-weather-icon').src = `${snowNight3D}`
-    } else if (weatherData.currentConditions.icon === "rain" || weatherData.currentConditions.icon === "showers-day") {
-      document.getElementById('main-weather-icon').src = `${rainDay3D}`
-    } else if (weatherData.currentConditions.icon === "showers-night") {
-      document.getElementById('main-weather-icon').src = `${rainNight3D}`
-    } else if (weatherData.currentConditions.icon === "partly-cloudy-day") {
-      document.getElementById('main-weather-icon').src = `${cloudsDay3D}`
-    } else if (weatherData.currentConditions.icon === "partly-cloudy-night") {
-      document.getElementById('main-weather-icon').src = `${cloudsNight3D}`
-    } else if (weatherData.currentConditions.icon === "cloudy" || weatherData.currentConditions.icon === "fog") {
-      document.getElementById('main-weather-icon').src = `${cloudsDay3D}`
-    } else if (weatherData.currentConditions.icon === "thunder-rain" || weatherData.currentConditions.icon === "thunder-showers-night") {
-      document.getElementById('main-weather-icon').src = `${thunderNight3D}`
-    } else if (weatherData.currentConditions.icon === "thunder-showers-day") {
-      document.getElementById('main-weather-icon').src = `${thunderDay3D}`
-    } else if (weatherData.currentConditions.icon === "clear-day") {
-      document.getElementById('main-weather-icon').src = `${clearDay3D}`
-    } else if (weatherData.currentConditions.icon === "clear-night") {
-      document.getElementById('main-weather-icon').src = `${clearNight3D}`
-    } else if (weatherData.currentConditions.icon === "wind") {
-      document.getElementById('main-weather-icon').src = `${windDay3D}`
-    }  
+    const weatherIcons3D = {
+      "snow": snowDay3D,
+      "snow-showers-day": snowDay3D,
+      "snow-showers-night": snowNight3D,
+      "rain": rainDay3D,
+      "showers-day": rainDay3D,
+      "showers-night": rainNight3D,
+      "partly-cloudy-day": cloudsDay3D,
+      "partly-cloudy-night": cloudsNight3D,
+      "cloudy": cloudsDay3D,
+      "fog": cloudsDay3D,
+      "thunder-rain": thunderNight3D,
+      "thunder-showers-night": thunderNight3D,
+      "thunder-showers-day": thunderDay3D,
+      "clear-day": clearDay3D,
+      "clear-night": clearNight3D,
+      "wind": windDay3D,
+    };
+    
+    const mainWeatherIcon = weatherIcons3D[weatherData.currentConditions.icon];
+    document.getElementById('main-weather-icon').src = mainWeatherIcon;
+    
 
     // Update hourly forecast
     const hourlyTempIds = ['6-am-temp', '8-am-temp', '10-am-temp', '12-pm-temp', '2-pm-temp', '4-pm-temp', '6-pm-temp'];
     const hourlyIconIds = ['6-am-icon', '8-am-icon', '10-am-icon', '12-pm-icon', '2-pm-icon', '4-pm-icon', '6-pm-icon'];
+    const hourlyIcons = {
+      "snow": snow,
+      "snow-showers-day": snow,
+      "snow-showers-night": snow,
+      "rain": rain,
+      "showers-day": rain,
+      "showers-night": rain,
+      "partly-cloudy-day": partlyCloudyDay,
+      "partly-cloudy-night": partlyCloudyNight,
+      "cloudy": fog,
+      "fog": fog,
+      "thunder-rain": thunder,
+      "thunder-showers-day": thunder,
+      "thunder-showers-night": thunder,
+      "clear-day": clearDay,
+      "clear-night": clearNight,
+      "wind": wind,
+    };
     hourlyData.forEach((hourData, index) => {
       document.getElementById(hourlyTempIds[index]).textContent = `${hourData.currentConditions.temp}°`;
-
-      if (hourData.currentConditions.icon === "snow" || hourData.currentConditions.icon === "snow-showers-day" || hourData.currentConditions.icon === "snow-showers-night") {
-        document.getElementById(hourlyIconIds[index]).src = `${snow}`;
-      } else if (hourData.currentConditions.icon === "rain" || hourData.currentConditions.icon === "showers-day" || hourData.currentConditions.icon === "showers-night") {
-        document.getElementById(hourlyIconIds[index]).src = `${rain}`;
-      } else if (hourData.currentConditions.icon === "partly-cloudy-day") {
-        document.getElementById(hourlyIconIds[index]).src = `${partlyCloudyDay}`;
-      } else if (hourData.currentConditions.icon === "partly-cloudy-night") {
-        document.getElementById(hourlyIconIds[index]).src = `${partlyCloudyNight}`;
-      } else if (hourData.currentConditions.icon === "cloudy" || hourData.currentConditions.icon === "fog") {
-        document.getElementById(hourlyIconIds[index]).src = `${fog}`;
-      } else if (hourData.currentConditions.icon === "thunder-rain" || hourData.currentConditions.icon === "thunder-showers-day" || hourData.currentConditions.icon === "thunder-showers-night") {
-        document.getElementById(hourlyIconIds[index]).src = `${thunder}`;
-      } else if (hourData.currentConditions.icon === "clear-day") {
-        document.getElementById(hourlyIconIds[index]).src = `${clearDay}`;
-      } else if (hourData.currentConditions.icon === "clear-night") {
-        document.getElementById(hourlyIconIds[index]).src = `${clearNight}`;
-      } else if (hourData.currentConditions.icon === "wind") {
-        document.getElementById(hourlyIconIds[index]).src = `${wind}`;
-      }      
+      const hourlyIcon = hourlyIcons[hourData.currentConditions.icon];
+      document.getElementById(hourlyIconIds[index]).src = hourlyIcon;    
     });
 
     // Update air conditions
@@ -155,31 +152,31 @@ async function getData() {
     const dayTempDetailsIds = ['day-1-temp', 'day-2-temp', 'day-3-temp', 'day-4-temp', 'day-5-temp', 'day-6-temp', 'day-7-temp', 'day-8-temp', 'day-9-temp', 'day-10-temp'];
     const dayIconIds = ['day-1-icon', 'day-2-icon', 'day-3-icon', 'day-4-icon', 'day-5-icon', 'day-6-icon', 'day-7-icon', 'day-8-icon', 'day-9-icon', 'day-10-icon'];
     const dayConditionIds = ['day-1-conditions', 'day-2-conditions', 'day-3-conditions', 'day-4-conditions', 'day-5-conditions', 'day-6-conditions', 'day-7-conditions', 'day-8-conditions', 'day-9-conditions', 'day-10-conditions'];
+    const dailyIcons = {
+      "snow": snow,
+      "snow-showers-day": snow,
+      "snow-showers-night": snow,
+      "rain": rain,
+      "showers-day": rain,
+      "showers-night": rain,
+      "partly-cloudy-day": partlyCloudyDay,
+      "partly-cloudy-night": partlyCloudyNight,
+      "cloudy": fog,
+      "fog": fog,
+      "thunder-rain": thunder,
+      "thunder-showers-day": thunder,
+      "thunder-showers-night": thunder,
+      "clear-day": clearDay,
+      "clear-night": clearNight,
+      "wind": wind,
+    };
 
     weatherData.days.slice(0, 10).forEach((dayData, index) => {
       document.getElementById(dayTempIds[index]).textContent = dayData.datetime;
       document.getElementById(dayTempDetailsIds[index]).textContent = `${dayData.temp}°`;
       document.getElementById(dayConditionIds[index]).textContent = dayData.conditions;
-
-      if (dayData.icon === "snow" || dayData.icon === "snow-showers-day" || dayData.icon === "snow-showers-night") {
-        document.getElementById(dayIconIds[index]).src = `${snow}`
-      } else if (dayData.icon === "rain" || dayData.icon === "showers-day" || dayData.icon === "showers-night") {
-        document.getElementById(dayIconIds[index]).src = `${rain}`
-      } else if (dayData.icon === "partly-cloudy-day") {
-        document.getElementById(dayIconIds[index]).src = `${partlyCloudyDay}`
-      } else if (dayData.icon === "partly-cloudy-night") {
-        document.getElementById(dayIconIds[index]).src = `${partlyCloudyNight}`
-      } else if (dayData.icon === "cloudy" || dayData.icon === "fog") {
-        document.getElementById(dayIconIds[index]).src = `${fog}`
-      } else if (dayData.icon === "thunder-rain" || dayData.icon === "thunder-showers-day" || dayData.icon === "thunder-showers-night") {
-        document.getElementById(dayIconIds[index]).src = `${thunder}`
-      } else if (dayData.icon === "clear-day") {
-        document.getElementById(dayIconIds[index]).src = `${clearDay}`
-      } else if (dayData.icon === "clear-night") {
-        document.getElementById(dayIconIds[index]).src = `${clearNight}`
-      } else if (dayData.icon === "wind") {
-        document.getElementById(dayIconIds[index]).src = `${wind}`
-      }
+      const dailyIcon = dailyIcons[dayData.icon];
+      document.getElementById(dayIconIds[index]).src = dailyIcon;
     });
 
     document.body.classList.add('loaded');
@@ -189,9 +186,9 @@ async function getData() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  getData()
-})
+// document.addEventListener("DOMContentLoaded", () => {
+//   getData()
+// })
 
 search.addEventListener('click', () => {
   getData()
