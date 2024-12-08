@@ -104,14 +104,14 @@ a {
   text-decoration: none;
 }
 
-/* body {
+body {
   opacity: 0;
   transition: opacity 1s ease-in;
 }
 
 body.loaded {
   opacity: 1;
-} */
+}
 
 header {
   display: flex;
@@ -307,7 +307,7 @@ main {
 }
 
 #temp {
-  font-size: 72px;
+  font-size: 60px;
 }
 
 #location {

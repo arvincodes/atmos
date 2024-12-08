@@ -42,6 +42,58 @@ themeSwitch.addEventListener('click', () => {
   darkmode !== 'active' ? enableDarkMode() : disableDarkMode()
 })
 
+function fahrenheitToCelsius(f) {
+  return ((f - 32) * 5 / 9).toFixed(1); // Convert to Celsius with 1 decimal place
+}
+
+function celsiusToFahrenheit(c) {
+  return ((c * 9 / 5) + 32).toFixed(1); // Convert to Fahrenheit with 1 decimal place
+}
+
+let currentUnit = 'F'; // Default unit is Fahrenheit
+const unitToggle = document.getElementById('unit-toggle');
+
+// Update all temperature values
+function updateTemperatures(unit) {
+  const mainTemp = document.getElementById('temp');
+  const hourlyTemps = document.querySelectorAll('[id$="-temp"]');
+  const dailyTemps = document.querySelectorAll('[id^="day"][id$="-temp"]');
+
+  // Convert the main temperature
+  if (mainTemp) {
+    const currentValue = parseFloat(mainTemp.textContent);
+    mainTemp.textContent = unit === 'C' 
+      ? `${celsiusToFahrenheit(currentValue)}° F`
+      : `${fahrenheitToCelsius(currentValue)}° C`;
+  }
+
+  // Convert hourly temperatures
+  hourlyTemps.forEach(tempElem => {
+    const currentValue = parseFloat(tempElem.textContent);
+    tempElem.textContent = unit === 'C' 
+      ? `${celsiusToFahrenheit(currentValue)}° F`
+      : `${fahrenheitToCelsius(currentValue)}° C`;
+  });
+
+  // Convert daily temperatures
+  dailyTemps.forEach(tempElem => {
+    const currentValue = parseFloat(tempElem.textContent);
+    tempElem.textContent = unit === 'C' 
+      ? `${celsiusToFahrenheit(currentValue)}° F`
+      : `${fahrenheitToCelsius(currentValue)}° C`;
+  });
+
+  // Update toggle button text
+  unitToggle.textContent = unit === 'C' ? '°F' : '°C';
+}
+
+// Handle unit toggle click
+unitToggle.addEventListener('click', () => {
+  currentUnit = currentUnit === 'F' ? 'C' : 'F';
+  updateTemperatures(currentUnit);
+});
+
+
 const input = document.getElementById('search')
 const search = document.querySelector('.search-icon')
 const preloadedLocation = 'New York'
@@ -175,6 +227,8 @@ async function getData() {
       document.getElementById(dayIconIds[index]).src = dailyIcon;
     });
 
+    updateTemperatures(currentUnit); // Apply the correct unit format
+
     document.body.classList.add('loaded');
 
   } catch (error) {
@@ -182,10 +236,11 @@ async function getData() {
   }
 }
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   getData()
-// })
+document.addEventListener("DOMContentLoaded", () => {
+  getData()
+})
 
 search.addEventListener('click', () => {
+  currentUnit = 'F'
   getData()
 })
