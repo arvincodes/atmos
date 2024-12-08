@@ -82,7 +82,7 @@ async function getData() {
     ]);
 
     // Update main weather section
-    document.getElementById('temp').textContent = `${weatherData.currentConditions.temp}°`;
+    document.getElementById('temp').textContent = `${weatherData.currentConditions.temp}° F`;
     document.getElementById('location').textContent = weatherData.resolvedAddress;
     document.getElementById('conditions').textContent = weatherData.currentConditions.conditions;
     document.getElementById('description').textContent = weatherData.description;
@@ -132,20 +132,16 @@ async function getData() {
       "wind": wind,
     };
     hourlyData.forEach((hourData, index) => {
-      document.getElementById(hourlyTempIds[index]).textContent = `${hourData.currentConditions.temp}°`;
+      document.getElementById(hourlyTempIds[index]).textContent = `${hourData.currentConditions.temp}° F`;
       const hourlyIcon = hourlyIcons[hourData.currentConditions.icon];
       document.getElementById(hourlyIconIds[index]).src = hourlyIcon;    
     });
 
     // Update air conditions
-    document.getElementById('humidity').textContent = weatherData.currentConditions.humidity;
-    if (weatherData.currentConditions.windgust === null) {
-      document.getElementById('wind-gust').textContent = 'N/A';
-    } else {
-      document.getElementById('wind-gust').textContent = weatherData.currentConditions.windgust;
-    }
-    document.getElementById('wind-speed').textContent = weatherData.currentConditions.windspeed;
-    document.getElementById('wind-direction').textContent = weatherData.currentConditions.winddir;
+    document.getElementById('humidity').textContent = `${weatherData.currentConditions.humidity}%`;
+    weatherData.currentConditions.windgust === null ? document.getElementById('wind-gust').textContent = 'N/A' : document.getElementById('wind-gust').textContent = `${weatherData.currentConditions.windgust} mph`
+    document.getElementById('wind-speed').textContent = `${weatherData.currentConditions.windspeed} mph`;
+    document.getElementById('wind-direction').textContent = `${weatherData.currentConditions.winddir}°`;
 
     // Update 10-day forecast
     const dayTempIds = ['day-1', 'day-2', 'day-3', 'day-4', 'day-5', 'day-6', 'day-7', 'day-8', 'day-9', 'day-10'];
@@ -173,7 +169,7 @@ async function getData() {
 
     weatherData.days.slice(0, 10).forEach((dayData, index) => {
       document.getElementById(dayTempIds[index]).textContent = dayData.datetime;
-      document.getElementById(dayTempDetailsIds[index]).textContent = `${dayData.temp}°`;
+      document.getElementById(dayTempDetailsIds[index]).textContent = `${dayData.temp}° F`;
       document.getElementById(dayConditionIds[index]).textContent = dayData.conditions;
       const dailyIcon = dailyIcons[dayData.icon];
       document.getElementById(dayIconIds[index]).src = dailyIcon;
