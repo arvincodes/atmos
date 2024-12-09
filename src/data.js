@@ -85,5 +85,6 @@ export async function getData() {
 
   } catch (error) {
     console.error('Error fetching data:', error);
+    alert('Oops! We’ve hit the daily limit for weather data requests. Please try again tomorrow or check back later. Sorry for the inconvenience!');
   }
 }
