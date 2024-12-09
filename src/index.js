@@ -1,14 +1,12 @@
 import './styles.css'
-import { initializeTheme } from './theme';
+import { initializeTheme, enableDarkMode } from './theme';
 import { getData } from './data';
 
-const input = document.getElementById('search')
 const search = document.querySelector('.search-icon')
-const preloadedLocation = 'New York'
-
-input.value = preloadedLocation
+const searchInput = document.getElementById("search");
 
 document.addEventListener("DOMContentLoaded", () => {
+  enableDarkMode()
   initializeTheme()
   getData()
 })
@@ -16,3 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
 search.addEventListener('click', () => {
   getData()
 })
+
+searchInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+      getData();
+  }
+});

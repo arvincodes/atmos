@@ -106,7 +106,7 @@ a {
 
 body {
   opacity: 0;
-  transition: opacity 3s ease-in;
+  transition: opacity 2.7s ease-in;
 }
 
 body.loaded {
@@ -174,12 +174,6 @@ header {
 
 .search-icon:hover {
   fill: var(--text-color);
-}
-
-.profile {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
 }
 
 .logo {

@@ -1,8 +1,7 @@
 import { weatherIcons3D, hourlyIcons, dailyIcons } from './icons';
-import { initializeTemperatureToggle, updateTemperatures } from './temperature';
+import { initializeTemperatureToggle } from './temperature';
 
 const input = document.getElementById('search')
-const search = document.querySelector('.search-icon')
 const preloadedLocation = 'New York'
 
 input.value = preloadedLocation

@@ -1,3 +1,5 @@
+const search = document.querySelector('.search-icon')
+const searchInput = document.getElementById("search");
 const unitToggle = document.getElementById('unit-toggle');
 let currentUnit = 'C';
 
@@ -14,7 +16,6 @@ export function updateTemperatures(unit) {
   const hourlyTemps = document.querySelectorAll('[id$="-temp"]');
   const dailyTemps = document.querySelectorAll('[id^="day"][id$="-temp"]');
 
-  // Convert the main temperature
   if (mainTemp) {
     const currentValue = parseFloat(mainTemp.textContent);
     mainTemp.textContent = unit === 'C' 
@@ -22,7 +23,6 @@ export function updateTemperatures(unit) {
       : `${fahrenheitToCelsius(currentValue)}° C`;
   }
 
-  // Convert hourly temperatures
   hourlyTemps.forEach(tempElem => {
     const currentValue = parseFloat(tempElem.textContent);
     tempElem.textContent = unit === 'C' 
@@ -30,7 +30,6 @@ export function updateTemperatures(unit) {
       : `${fahrenheitToCelsius(currentValue)}° C`;
   });
 
-  // Convert daily temperatures
   dailyTemps.forEach(tempElem => {
     const currentValue = parseFloat(tempElem.textContent);
     tempElem.textContent = unit === 'C' 
@@ -38,7 +37,6 @@ export function updateTemperatures(unit) {
       : `${fahrenheitToCelsius(currentValue)}° C`;
   });
 
-  // Update toggle button text
   unitToggle.textContent = unit === 'C' ? '°F' : '°C';
 }
 
@@ -53,3 +51,10 @@ search.addEventListener('click', () => {
   currentUnit = 'C'
   initializeTemperatureToggle()
 })
+
+searchInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    currentUnit = 'C'
+    initializeTemperatureToggle()
+  }
+});
