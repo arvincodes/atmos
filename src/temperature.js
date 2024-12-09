@@ -13,7 +13,7 @@ export function celsiusToFahrenheit(c) {
 
 export function updateTemperatures(unit) {
   const mainTemp = document.getElementById('temp');
-  const hourlyTemps = document.querySelectorAll('[id$="-temp"]');
+  const hourlyTemps = document.querySelectorAll('[id$="m-temp"]');
   const dailyTemps = document.querySelectorAll('[id^="day"][id$="-temp"]');
 
   if (mainTemp) {
