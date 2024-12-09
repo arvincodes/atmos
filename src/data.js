@@ -84,7 +84,13 @@ export async function getData() {
     document.body.classList.add('loaded');
 
   } catch (error) {
-    console.error('Error fetching data:', error);
+    const imgs = document.querySelectorAll('img')
+    imgs.forEach(img => {
+      img.style.visibility = 'hidden';
+    });
+
+    document.body.classList.add('loaded');
+
     alert('Oops! We’ve hit the daily limit for weather data requests. Please try again tomorrow or check back later. Sorry for the inconvenience!');
   }
 }
