@@ -13,31 +13,9 @@ export async function getData() {
     return;
   }
 
-  const formattedDate = (() => {
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-    const day = String(currentDate.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}T`;
-  })();
-
   try {
-    const weatherResponse = fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}?key=ZFE55KN2Q8RRM54T9WD4CJ7XD`, { mode: 'cors' });
-    const hourlyResponses = [
-      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}06:00:00?key=ZFE55KN2Q8RRM54T9WD4CJ7XD&include=current`, { mode: 'cors' }),
-      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}08:00:00?key=ZFE55KN2Q8RRM54T9WD4CJ7XD&include=current`, { mode: 'cors' }),
-      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}10:00:00?key=ZFE55KN2Q8RRM54T9WD4CJ7XD&include=current`, { mode: 'cors' }),
-      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}12:00:00?key=ZFE55KN2Q8RRM54T9WD4CJ7XD&include=current`, { mode: 'cors' }),
-      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}14:00:00?key=ZFE55KN2Q8RRM54T9WD4CJ7XD&include=current`, { mode: 'cors' }),
-      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}16:00:00?key=ZFE55KN2Q8RRM54T9WD4CJ7XD&include=current`, { mode: 'cors' }),
-      fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}/${formattedDate}18:00:00?key=ZFE55KN2Q8RRM54T9WD4CJ7XD&include=current`, { mode: 'cors' }),
-    ];
-    
-
-    const [weatherData, ...hourlyData] = await Promise.all([
-      weatherResponse.then((res) => res.json()),
-      ...hourlyResponses.map((res) => res.then((response) => response.json())),
-    ]);
+    const weatherResponse = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input.value}?key=ZFE55KN2Q8RRM54T9WD4CJ7XD`, { mode: 'cors' });
+    const weatherData = await weatherResponse.json()
 
     // Update main weather section
     document.getElementById('temp').textContent = `${weatherData.currentConditions.temp}° F`;
@@ -48,15 +26,16 @@ export async function getData() {
     const mainWeatherIcon = weatherIcons3D[weatherData.currentConditions.icon];
     document.getElementById('main-weather-icon').src = mainWeatherIcon;
     
-
     // Update hourly forecast
     const hourlyTempIds = ['6-am-temp', '8-am-temp', '10-am-temp', '12-pm-temp', '2-pm-temp', '4-pm-temp', '6-pm-temp'];
     const hourlyIconIds = ['6-am-icon', '8-am-icon', '10-am-icon', '12-pm-icon', '2-pm-icon', '4-pm-icon', '6-pm-icon'];
+    const selectedHours = [6, 8, 10, 12, 14, 16, 18];
 
-    hourlyData.forEach((hourData, index) => {
-      document.getElementById(hourlyTempIds[index]).textContent = `${hourData.currentConditions.temp}° F`;
-      const hourlyIcon = hourlyIcons[hourData.currentConditions.icon];
-      document.getElementById(hourlyIconIds[index]).src = hourlyIcon;    
+    selectedHours.forEach((hourIndex, index) => {
+      const hourData = weatherData.days[0].hours[hourIndex];
+      document.getElementById(hourlyTempIds[index]).textContent = `${hourData.temp}° F`;
+      const hourlyIcon = hourlyIcons[hourData.icon];
+      document.getElementById(hourlyIconIds[index]).src = hourlyIcon;
     });
 
     // Update air conditions
